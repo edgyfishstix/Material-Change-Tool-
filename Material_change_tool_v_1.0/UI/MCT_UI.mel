@@ -1,0 +1,53 @@
+global proc DirectoryFiles(){
+    Import;
+};
+
+
+global proc MaterialChangeTool(){
+    
+    window -tbm on -vis on -t "Material Quick Changer" -w 900 -h 1000 -mnb on; 
+   
+    columnLayout -bgc 1.0 0.451 0.55  -co "left" 50 -vis on -cw 800 -adj off ;
+    frameLayout -bgc 0.988 0.765 0.639 -nch -w 1000 -h 1100 -cll on -l "Base Material Placement" -vis on;
+     rowColumnLayout -bgc 1.0 0.451 0.55 -ro 1 "both" 25 -vis on -nr 2;
+         button -bgc 0.941 0.624 0.612 -vis on -w 100 -h 200 -l "Apply Base Material To Geometry" -c "sets -e -forceElement node_network_base_setup___Copy:lambert10SG;"; 
+       
+       
+    columnLayout -bgc 1.0 0.451 0.55 -co "left" 50 -adj on;
+    frameLayout -bgc 0.988 0.765 0.639  -nch -w 900 -h 800 -cll on -l "Material Showcase" -vis on;
+    rowColumnLayout -bgc 1.0 0.451 0.55 -ro 1 "both" 25 -vis on -nr 2;
+    
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 1" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 0";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 5" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 4";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 2" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 1";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 6" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 5"; 
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 3" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 2";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 7" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 6";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 4" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 3";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Material 8" -w 200 -h 150 -c "setAttr node_network_base_setup___Copy:lambert_base.WardrobeColorChange 7"; 
+    setParent ..;
+    
+   
+    frameLayout -bgc 0.988 0.765 0.639  -nch -w 800 -h 1200 -cll on -l "Material Sourcer" -vis on;
+    rowColumnLayout -bgc 1.0 0.451 0.55 -ro 1 "both" 25 -vis on -nr 2;
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 1 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:green_lam ;";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 5 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:pink_lam ";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 2 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:blue_lam ;";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 6 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:purple_lam ";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 3 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:red_lam ;";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 7 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:orange_lam ;";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 4 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:yellow_lam ";
+    button -bgc 0.941 0.624 0.612 -aop on -vis on -l "Mat 8 Source" -w 200 -h 150 -c "select -r node_network_base_setup___Copy:chartreuse_lam ;";
+    
+    
+     
+     
+   showWindow;
+    
+    window -vis on -w 400 -h 200 -t "MCT Importer" -mnb on;
+    columnLayout  -w 400 -h 200 -adj on; 
+    button -bgc 0.988 0.765 0.639  -l "Import Tool Base Code" -w 400 -h 200 -aop on -vis on -c "DirectoryFiles;";
+   setParent ..; 
+}; 
+
+MaterialChangeTool;
